@@ -6,10 +6,11 @@ import ProjectDetailView from './views/ProjectDetailView.vue'
 import './style.css'
 
 const router = createRouter({
-  history: createWebHashHistory('/portfolio-vue/'),
+  history: createWebHashHistory(),
   routes: [
     { path: '/', component: HomeView },
-    { path: '/projekt/:slug', component: ProjectDetailView }
+    { path: '/projekt/:slug', component: ProjectDetailView },
+    { path: '/:slug', component: ProjectDetailView }
   ],
   scrollBehavior: () => ({ top: 0 })
 })
