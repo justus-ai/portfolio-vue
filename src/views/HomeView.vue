@@ -37,11 +37,13 @@ import { projects } from '../data'
       </div>
 
       <div class="project-grid">
-        <RouterLink v-for="project in projects" :key="project.slug" :to="project.route" class="project-card" :class="project.color">
-          <div class="project-card-top"><span>{{ project.number }}</span><span>{{ project.type }}</span></div>
-          <div class="project-visual"><div class="visual-window"><i></i><i></i><i></i><strong>{{ project.title }}</strong></div></div>
-          <div class="project-card-copy"><h3>{{ project.title }}</h3><p>{{ project.summary }}</p><span class="card-link">Läs projektet ↗</span></div>
-        </RouterLink>
+        <RouterLink 
+      v-for="project in projects" 
+      :key="project.slug" 
+      :to="`/projekt/${project.slug}`"  <!-- ÄNDRAT FRÅN :to="project.route" -->
+      class="project-card" 
+     :class="project.color"
+>
       </div>
     </section>
 
