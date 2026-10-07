@@ -38,18 +38,22 @@ import { projects } from '../data'
 
       <div class="project-grid">
         <RouterLink 
-      v-for="project in projects" 
-      :key="project.slug" 
-      :to="`/projekt/${project.slug}`"  <!-- ÄNDRAT FRÅN :to="project.route" -->
-      class="project-card" 
-     :class="project.color"
->
+          v-for="project in projects" 
+          :key="project.slug" 
+          :to="`/projekt/${project.slug}`"
+          class="project-card" 
+          :class="project.color"
+        >
+          <div class="project-card-top"><span>{{ project.number }}</span><span>{{ project.type }}</span></div>
+          <div class="project-visual"><div class="visual-window"><i></i><i></i><i></i><strong>{{ project.title }}</strong></div></div>
+          <div class="project-card-copy"><h3>{{ project.title }}</h3><p>{{ project.summary }}</p><span class="card-link">Läs projektet ↗</span></div>
+        </RouterLink>
       </div>
     </section>
 
     <section class="skills-band page-section">
       <div><p class="eyebrow">VERKTYGSLÅDA</p><h2>Från första skiss till fungerande produkt.</h2></div>
-      <div class="skill-list"><span>Vue JS</span><span>JavaScript</span><span>C# / .NET</span><span>REST API</span><span>Entity Framework</span><span>SQLite</span><span>Responsive CSS</span><span>Git & GitHub</span></div>
+      <div class="skill-list"><span>Vue JS</span><span>JavaScript</span><span>C# / .NET</span><span>REST API</span><span>Entity Framework</span><span>SQLite</span><span>Responsive CSS</span><span>[...]
     </section>
   </main>
 </template>
