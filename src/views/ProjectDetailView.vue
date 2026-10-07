@@ -1,10 +1,9 @@
 <script setup>
-import { computed } from 'vue'
-import { RouterLink, useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { projects } from '../data'
 
 const route = useRoute()
-const project = computed(() => projects.find((item) => item.slug === route.params.slug) ?? projects[0])
+const project = projects.find(p => p.slug === route.params.slug)
 </script>
 
 <template>
