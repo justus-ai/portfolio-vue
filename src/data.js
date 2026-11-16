@@ -10,7 +10,19 @@ export const projects = [
     route: '/todo-lista',
     color: 'mint',
     code: 'app.MapPut("/api/todos/{id}", async (int id, TodoItem updatedTodo, TodoDbContext db) => { ... });',
-    result: ['Lista med uppgifter', 'Datum för varje uppgift', 'Klar / inte klar', 'Skapa, redigera och ta bort']
+    result: ['Lista med uppgifter', 'Datum för varje uppgift', 'Klar / inte klar', 'Skapa, redigera och ta bort'],
+    learnings: ['Bygga ett komplett CRUD-flöde från frontend till databas', 'Skapa REST-endpoints med ASP.NET Core', 'Hantera state och användarinteraktion i Vue'],
+    highlights: ['Skapa, uppdatera och ta bort uppgifter', 'Markera uppgifter som klara', 'Visa datum och status för varje uppgift'],
+    codeExample: `const response = await fetch('/api/todos')
+const todos = await response.json()
+
+async function saveTodo(todo) {
+  await fetch('/api/todos', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(todo)
+  })
+}`
   },
   {
     slug: 'blogg',
@@ -23,7 +35,17 @@ export const projects = [
     route: '/blogg',
     color: 'coral',
     code: 'const response = await fetch(`${API_URL}/${id}`, { method: \'DELETE\' })',
-    result: ['Lista med inlägg', 'Detaljvy', 'Redigera innehåll', 'Ta bort inlägg']
+    result: ['Lista med inlägg', 'Detaljvy', 'Redigera innehåll', 'Ta bort inlägg'],
+    learnings: ['Designa en tydlig klient-server-uppdelning', 'Arbeta med REST-anrop och formulärdata', 'Spara och hämta data via SQLite'],
+    highlights: ['Visa alla inlägg i en lista', 'Detaljvy för varje bloggpost', 'Redigera och ta bort innehåll'],
+    codeExample: `const response = await fetch(`${API_URL}/${id}`)
+const post = await response.json()
+
+await fetch(`${API_URL}/${post.id}`, {
+  method: 'PUT',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(post)
+})`
   },
   {
     slug: 'webbutik',
@@ -36,7 +58,16 @@ export const projects = [
     route: '/webbutik',
     color: 'yellow',
     code: 'const selectedProduct = computed(() => products.find(product => product.id === selectedProductId.value))',
-    result: ['Produktkatalog', 'Produktdetalj', 'Kundformulär', 'Responsiv layout']
+    result: ['Produktkatalog', 'Produktdetalj', 'Kundformulär', 'Responsiv layout'],
+    learnings: ['Bygga komponenter med tydlig ansvarsfördelning', 'Tänk igenom användarflöden i en kundresa', 'Skapa responsiv UI med fokus på tydlighet'],
+    highlights: ['Produktkatalog med tydlig översikt', 'Detaljvy med produktinfo', 'Kundformulär och checkout-flöde'],
+    codeExample: `const selectedProduct = computed(() =>
+  products.find(product => product.id === selectedProductId.value)
+)
+
+const totalPrice = computed(() =>
+  cartItems.reduce((sum, item) => sum + item.price, 0)
+)`
   },
   {
     slug: 'lilla-torget',
@@ -49,6 +80,13 @@ export const projects = [
     route: '/lilla-torget',
     color: 'blue',
     code: "{ path: '/lunchmeny', name: 'menu', component: MenuView }",
-    result: ['Startsida', 'Lunchmeny', 'Kontaktuppgifter', 'Mobilanpassning']
+    result: ['Startsida', 'Lunchmeny', 'Kontaktuppgifter', 'Mobilanpassning'],
+    learnings: ['Skapa tydlig struktur i en flera-sidig frontend', 'Använda Vue Router för navigering', 'Arbeta med visuell identitet och responsiv layout'],
+    highlights: ['Startpage med restaurangprofil', 'Lunchmeny och kontaktsektion', 'Mobilanpassad UX och stil'],
+    codeExample: `const routes = [
+  { path: '/', component: HomeView },
+  { path: '/lunchmeny', component: MenuView },
+  { path: '/kontakt', component: ContactView }
+]`
   }
 ]
